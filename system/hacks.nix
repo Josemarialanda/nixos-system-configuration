@@ -1,7 +1,8 @@
 { config, pkgs,... }:
 
 let 
-  monitorsXmlContent = builtins.readFile /home/josemaria/.config/monitors.xml;
+  config-variables = import ../config-variables.nix;
+  monitorsXmlContent = builtins.readFile "/home/${config-variables.username}/.config/monitors.xml";
   monitorsConfig = pkgs.writeText "gdm_monitors.xml" monitorsXmlContent;
 in {
   config = {
