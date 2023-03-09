@@ -1,3 +1,6 @@
+# Build with nixos-rebuild build --impure --flake .#
+# Switch with nixos-rebuild boot/switch --impure --flake .#
+
 {
   description = "NixOS system configurations";
 
