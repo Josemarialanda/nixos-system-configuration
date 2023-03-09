@@ -211,16 +211,8 @@ in {
         "....." = "cd ../../../..";
   
         # NixOS aliases
-        nixos-config = "sudo $EDITOR /etc/nixos/configuration.nix";
-        nixos-sync-now = "sudo nixos-rebuild switch";  
-        nixos-sync-boot = "sudo nixos-rebuild boot";      
+        nixos-config = "sudo $EDITOR /etc/nixos/configuration.nix"; 
         nixos-undo = "sudo nixos-rebuild switch --rollback";
-        nixos-update = "sudo nix-channel --update"; # nixos-update <channel-alias> updates only one channel
-        nixos-update-undo = "sudo nix-channel --rollback";
-        nixos-channels = "sudo nix-channel --list";
-        nixos-channel-add = "sudo nix-channel --add";
-        nixos-channel-remove = "sudo nix-channel --remove";
-        nixos-generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
         nixos-clean = "sudo nix-collect-garbage -d"; # system cleanup
         nixos-optimise = "nix-store --optimise";
   
