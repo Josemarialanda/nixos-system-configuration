@@ -7,6 +7,6 @@
 
   imports = [
     ./programs.nix
-    ./themes.nix
+    ./dotfiles.nix
   ];
   }
