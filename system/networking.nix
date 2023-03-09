@@ -1,8 +1,10 @@
 { config, pkgs,... }:
-{
+let 
+  config-variables = import ../config-variables.nix;
+in {
   config.networking = {
     # Setup networking.
     networkmanager.enable = true;
-    hostName = "nixos";
+    hostName = config-variables.hostname;
   };
 }

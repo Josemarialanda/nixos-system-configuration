@@ -1,9 +1,11 @@
 { config, pkgs, ... }:
-{
+let 
+  config-variables = import ../config-variables.nix;
+in {
   programs.home-manager.enable = true;
-  home.username = "josemaria";
-  home.homeDirectory = "/home/josemaria";
-  home.stateVersion = "22.11";
+  home.username = config-variables.username;
+  home.homeDirectory = "/home/" + config-variables.username;
+  home.stateVersion = config-variables.stateVersion;
 
   imports = [
     ./programs.nix

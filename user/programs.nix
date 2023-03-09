@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-{
+let 
+  config-variables = import ../config-variables.nix;
+in {
   home.packages = with pkgs; [
 
     # Programming.
@@ -133,8 +135,8 @@
     # Configure git
     git = {
       enable = true;
-      userName = "josemarialanda";
-      userEmail = "josemaria.landa@gmail.com";
+      userName = config-variables.gitUsername;
+      userEmail = config-variables.email;
     };
   
     # Enable bat: a better cat
