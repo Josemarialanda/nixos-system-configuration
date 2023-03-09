@@ -4,5 +4,6 @@ pushd nixos-system-configuration-master
 ./update-system.sh "boot"
 ./update-home.sh
 popd
-rm -r nixos-system-configuration-master
+rm -rf nixos-system-configuration-master
+rm -f master.tar.gz
 echo "Reboot computer for changes to take effect"
