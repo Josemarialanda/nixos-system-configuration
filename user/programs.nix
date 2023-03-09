@@ -65,6 +65,7 @@ in {
     xautoclick
     textpieces
     sysprof
+    virt-manager
 
     # Terminals.
     blackbox-terminal

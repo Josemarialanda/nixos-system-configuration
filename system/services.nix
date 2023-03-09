@@ -14,5 +14,8 @@
     
     # Enable Docker.
     virtualisation.docker.enable = true;
+
+   # Enable libvirtd, a daemon that manages virtual machines.
+    virtualisation.libvirtd.enable = true;
   };
 }
