@@ -7,5 +7,6 @@
 
   imports = [
     ./programs.nix
+    ./themes.nix
   ];
   }
