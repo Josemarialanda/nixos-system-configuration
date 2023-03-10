@@ -42,7 +42,6 @@ in {
     stremio
     shortwave
     vlc
-    video-trimmer
   
     # Office.
     texstudio
