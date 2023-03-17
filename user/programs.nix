@@ -26,6 +26,7 @@ in {
       
     # Internet.
     google-chrome
+    microsoft-edge
     fragments
 
     # Social.
