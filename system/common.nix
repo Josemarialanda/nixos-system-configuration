@@ -7,7 +7,7 @@
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
     # Use the latest kernel.
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
     # Enable NTFS support.
     boot.supportedFilesystems = [ "ntfs" ];

@@ -9,10 +9,10 @@ in {
     cookiecutter
     meld
     docker-compose
-    dbeaver
-    gitg
     gh
     nil
+    gitea
+    tea
   
     # Gnome.
     gnome.gnome-tweaks
@@ -26,7 +26,6 @@ in {
       
     # Internet.
     google-chrome
-    microsoft-edge
     fragments
 
     # Social.
