@@ -108,6 +108,7 @@ in {
     rlwrap
     wtf
     pipr
+    xsensors
   ];
 
   # Configurable programs.
@@ -212,8 +213,6 @@ in {
         "....." = "cd ../../../..";
   
         # NixOS aliases
-        nixos-config = "sudo $EDITOR /etc/nixos/configuration.nix"; 
-        nixos-undo = "sudo nixos-rebuild switch --rollback";
         nixos-clean = "sudo nix-collect-garbage -d"; # system cleanup
         nixos-optimise = "nix-store --optimise";
   
