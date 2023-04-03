@@ -13,6 +13,8 @@ in {
     nil
     gitea
     tea
+    sqliteman
+    dbeaver
   
     # Gnome.
     gnome.gnome-tweaks
@@ -52,6 +54,9 @@ in {
     gaphor
     slides
     libreoffice
+    pdfgrep
+    pdfdiff
+    pdfcrack
 
     # Utilities.
     dialect
@@ -109,6 +114,7 @@ in {
     wtf
     pipr
     xsensors
+    psensor
   ];
 
   # Configurable programs.
