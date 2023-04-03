@@ -54,9 +54,6 @@ in {
     gaphor
     slides
     libreoffice
-    pdfgrep
-    pdfdiff
-    pdfcrack
 
     # Utilities.
     dialect
