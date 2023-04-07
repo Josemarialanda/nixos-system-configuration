@@ -18,6 +18,7 @@ in {
   
     # Gnome.
     gnome.gnome-tweaks
+    gnomeExtensions.systemd-manager
   
     # Icon themes.
     papirus-icon-theme
