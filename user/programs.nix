@@ -68,6 +68,7 @@ in {
     textpieces
     sysprof
     virt-manager
+    tailscale
 
     # Terminals.
     blackbox-terminal

@@ -10,6 +10,12 @@
 
       # Enable CUPS to print documents.
       printing.enable = true;
+
+      # Enable Tailscale client daemon.
+      tailscale = {
+        enable = true;
+        permitCertUid = "josemaria";
+      };
     };
     
     # Enable Docker.
