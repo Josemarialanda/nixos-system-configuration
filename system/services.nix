@@ -21,10 +21,9 @@ in {
       code-server = {
         enable = true;
         host = "100.69.18.110"; # host = "localhost";
-        port = 5000;
+        port = 8080;
         user = config-variables.username;
-        auth = "password";
-        hashedPassword = "$argon2i$v=19$m=4096,t=3,p=1$/1RXd0q6zyni09V+TDN+bg$nt8ut6dya0019jAGRH8YlTfMtDNZlMi4ySbtRLX51KQ";
+        auth = "none";
       };
 
       # TODO: Setup Caddy to expose code-server through HTTPS to nixos.tail3efa1.ts.net domain.
@@ -33,14 +32,15 @@ in {
       # caddy = {
       #   enable = true;
       #   virtualHosts."nixos.tail3efa1.ts.net".extraConfig = ''
-      #     reverse_proxy localhost:5000
+      #     reverse_proxy localhost:8080
       #   '';
       # };
-
+      
+      # Expose code-server through HTTPS to nixos.tail3efa1.ts.net domain.
       # caddy = {
       #   enable = true;
-      #   virtualHosts."nixos.tail3efa1.ts.net:15000".extraConfig = ''
-      #     reverse_proxy localhost:5000
+      #   virtualHosts."nixos.tail3efa1.ts.net:18080".extraConfig = ''
+      #     reverse_proxy localhost:8080
       #   '';
       # };
 

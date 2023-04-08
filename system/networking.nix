@@ -8,6 +8,6 @@ in {
     hostName = config-variables.hostname;
 
     # Open ports 80 and 443 for HTTP and HTTPS.
-    firewall.allowedTCPPorts = [ 80 443 ];
+    firewall.allowedTCPPorts = [ 80 443 8080 ];
   };
 }
