@@ -15,9 +15,14 @@ in {
       printing.enable = true;
 
       # Enable Tailscale client daemon.
+      # To run Tailscale, run:          sudo tailscale up
+      # To stop Tailscale, run:         sudo tailscale down
+      # To check Tailscale status, run: tailscale status
       tailscale.enable = true;
 
       # Enable code-server and expose to tailscale network.
+      # To run code-server, run:     sudo systemctl start code-server@$USER
+      # To stop code-server, run:    sudo systemctl stop code-server@$USER
       code-server = {
         enable = true;
         host = "100.69.18.110"; # host = "localhost";
