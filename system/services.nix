@@ -6,7 +6,6 @@ let
   noSleepOnSSH = pkgs.writeScriptBin "noSleepOnSSH" ''
     #!/bin/sh
     sshConnected=$(${pkgs.unixtools.netstat}/bin/netstat -tnp -W 2>/dev/null | ${pkgs.gawk}/bin/gawk '$6 == "ESTABLISHED" && $4 ~ /:22$/ {print "true"; found = 1; exit} END { if (found != 1) print "false" }')
-    echo $sshConnected
     if [ "$sshConnected" = "true" ]; then
       # Jiggle the mouse to prevent sleep
       export DISPLAY=:0
