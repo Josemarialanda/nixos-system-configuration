@@ -176,6 +176,12 @@ in {
   
       # Shell aliases
       shellAliases = {
+
+        # Show active SSH connections (IP address and hostname)
+        active-ssh-connections = "netstat -tnp -W 2>/dev/null | awk '$6 == \"ESTABLISHED\" && $4 ~ /:22$/ {split($5, a, \":\"); cmd = \"host \" a[1]; cmd | getline hostname; close(cmd); split(hostname, b, \" \"); print a[1], \"(\" b[5] \")\"; exit}'";
+
+        # Check if there are active SSH connections
+        has-ssh-connections = "netstat -tnp -W 2>/dev/null | awk '\$6 == \"ESTABLISHED\" && \$4 ~ /:22\$/ {print \"true\"; found = 1; exit} END { if (found != 1) print \"false\" }'";
   
         # Variations of ls
         ll = "ls -l";
