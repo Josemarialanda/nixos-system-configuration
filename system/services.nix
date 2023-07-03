@@ -2,32 +2,30 @@
 
 let 
   config-variables = import ../config-variables.nix;
-  # create script to prevent system sleep if there is an active SSH connection
-  noSleepOnSSH = pkgs.writeScriptBin "noSleepOnSSH" ''
-    #!/bin/sh
-    sshConnected=$(${pkgs.unixtools.netstat}/bin/netstat -tnp -W 2>/dev/null | ${pkgs.gawk}/bin/gawk '$6 == "ESTABLISHED" && $4 ~ /:22$/ {print "true"; found = 1; exit} END { if (found != 1) print "false" }')
-    if [ "$sshConnected" = "true" ]; then
-      ${pkgs.unixtools.systemctl}/bin/systemctl mask sleep.target suspend.target
-    else
-      ${pkgs.unixtools.systemctl}/bin/systemctl unmask sleep.target suspend.target
-    fi
-  '';
+  # noSleepOnSSH = pkgs.writeScriptBin "noSleepOnSSH" ''
+  #   #!/bin/sh
+  #   sshConnected=$(${pkgs.unixtools.netstat}/bin/netstat -tnp -W 2>/dev/null | ${pkgs.gawk}/bin/gawk '$6 == "ESTABLISHED" && $4 ~ /:22$/ {print "true"; found = 1; exit} END { if (found != 1) print "false" }')
+  #   if [ "$sshConnected" = "true" ]; then
+  #     # Disable system sleep if there is an active SSH connection.
+  #   else
+  #     # Enable system sleep if there is no active SSH connection.
+  #   fi
+  # '';
 in {
   config = {
-    # SystemD services configuration.
-    systemd.services = {
-      # Disable system sleep if there is an active SSH connection.
-      noSleepOnSSH = {
-        description = "Prevent system sleep if there is an active SSH connection";
-        wantedBy = [ "multi-user.target" ];
-        serviceConfig = {
-          Type = "simple";
-          Restart = "always";
-          RestartSec = "300";
-          ExecStart = "${noSleepOnSSH}/bin/noSleepOnSSH";
-        };
-      };
-    };
+    # systemd.services = {
+    #   # Disable system sleep if there is an active SSH connection.
+    #   noSleepOnSSH = {
+    #     description = "Prevent system sleep if there is an active SSH connection";
+    #     wantedBy = [ "multi-user.target" ];
+    #     serviceConfig = {
+    #       Type = "simple";
+    #       Restart = "always";
+    #       RestartSec = "300";
+    #       ExecStart = "${noSleepOnSSH}/bin/noSleepOnSSH";
+    #     };
+    #   };
+    # };
 
     services = {
       # Enable the OpenSSH daemon.
