@@ -7,18 +7,9 @@ let
     #!/bin/sh
     sshConnected=$(${pkgs.unixtools.netstat}/bin/netstat -tnp -W 2>/dev/null | ${pkgs.gawk}/bin/gawk '$6 == "ESTABLISHED" && $4 ~ /:22$/ {print "true"; found = 1; exit} END { if (found != 1) print "false" }')
     if [ "$sshConnected" = "true" ]; then
-      # Jiggle the mouse to prevent sleep
-      export DISPLAY=:0
-      export XAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.IKCS71
-      ${pkgs.xdotool}/bin/xdotool mousemove_relative --sync 1 1
-      sleep 0.1
-      ${pkgs.xdotool}/bin/xdotool mousemove_relative --sync -- -1 -1
-      sleep 0.1
-      # write to journalctl (include timestamp)
-      ${pkgs.util-linux}/bin/logger -t noSleepOnSSH "Active SSH connection, jiggled mouse to prevent sleep"
-    else 
-      # write to journalctl (include timestamp)
-      ${pkgs.util-linux}/bin/logger -t noSleepOnSSH "No active SSH connection"
+      ${pkgs.unixtools.systemctl}/bin/systemctl mask sleep.target suspend.target
+    else
+      ${pkgs.unixtools.systemctl}/bin/systemctl unmask sleep.target suspend.target
     fi
   '';
 in {
